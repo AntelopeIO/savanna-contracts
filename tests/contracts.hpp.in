@@ -1,0 +1,28 @@
+#pragma once
+#include <eosio/testing/tester.hpp>
+
+namespace eosio::testing {
+
+struct contracts {
+   static std::vector<uint8_t> ibc_wasm() { return read_wasm("${CMAKE_BINARY_DIR}/contracts/ibc/ibc.wasm"); }
+   static std::vector<char>    ibc_abi() { return read_abi("${CMAKE_BINARY_DIR}/contracts/ibc/ibc.abi"); }
+
+};
+
+} // namespace eosio::testing
+
+namespace eosio::testing::test_contracts {
+
+static std::vector<uint8_t> ibc_wasm()
+{
+   return eosio::testing::read_wasm(
+      "${CMAKE_BINARY_DIR}/contracts/ibc/ibc.wasm");
+}
+static std::vector<char>    ibc_abi() 
+{
+   return eosio::testing::read_abi(
+      "${CMAKE_BINARY_DIR}/contracts/ibc/ibc.abi"); 
+}
+
+
+} // namespace eosio::testing::test_contracts
